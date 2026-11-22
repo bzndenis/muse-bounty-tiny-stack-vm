@@ -1,3 +1,7 @@
+// Tiny Stack VM: faithful interpreter for the make.fun tiny stack ISA.
+// B[op] = [immediate bytes, pops, pushes]; arithmetic ops 16-34 (not 31)
+// use the fallback row. Traps: 2 underflow, 3 overflow, 4 div0, 5 opcode,
+// 6 address, 7 call depth, 8 ret empty, 9 PC range, 10 steps, 11 output.
 import{readdirSync,readFileSync,writeFileSync,mkdirSync}from"node:fs";
 import{join}from"node:path";
 const B={0:[0,0,0],1:[1,0,1],2:[4,0,1],3:[0,1,0],4:[0,1,2],5:[0,2,2],6:[0,2,3],7:[0,3,3],48:[2,0,0],49:[2,1,0],50:[2,1,0],51:[2,0,0],52:[0,0,0],64:[0,1,1],65:[0,2,0],80:[0,1,0],81:[0,1,0],82:[0,0,1],83:[0,1,0]};
